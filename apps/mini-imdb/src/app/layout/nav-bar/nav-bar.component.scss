@@ -1,0 +1,39 @@
+@import "../../shared/css/vars";
+@import "~bootstrap/scss/bootstrap";
+
+$header-height: 60px;
+$input-height: 40px;
+:host {
+  display: block;
+  min-height: $header-height;
+  ::ng-deep .headroom {
+    position: fixed;
+    z-index: 10;
+    left: 0;
+    right: 0;
+    top: 0;
+  }
+  #header {
+    display: block;
+    min-height: $header-height;
+    line-height: $header-height;
+    white-space: nowrap;
+    text-align: center;
+    background-color: $light-gray;
+    box-shadow: 0 3px 10px -6px rgba(0,0,0,.3);
+    ::ng-deep input {
+      margin: 10px;
+      width: 80%;
+      max-width: 400px;
+      line-height: $input-height;
+      height: $input-height;
+      padding: 0 10px;
+      &, &:hover, &:focus {
+        outline: none;
+      }
+    }
+  }
+  @media screen and (max-width: map-get($grid-breakpoints, sm)){
+    min-height: $header-height * 2;
+  }
+}

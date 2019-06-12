@@ -1,0 +1,10 @@
+:host {
+  display: block;
+  padding-top: 15px;
+  .search-results {
+    .no-results {
+      color: #89919e;
+      font-weight: 300;
+    }
+  }
+}

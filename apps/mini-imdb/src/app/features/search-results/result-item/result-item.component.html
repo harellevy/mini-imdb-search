@@ -1,0 +1,16 @@
+<div class="result-item-container">
+  <div class="img-cont">
+    <div class="badge {{movie.Type}}">{{movie.Type}}</div>
+    <img *ngIf="movie?.Poster !== 'N/A'; else posterNA" [src]="movie.Poster"
+         fallback="../../../../assets/images/search-results/none_175px.jpg"
+         [alt]="movie.Title">
+    <ng-template #posterNA>
+      <img src="../../../../assets/images/search-results/none_175px.jpg" [alt]="movie.Title">
+    </ng-template>
+  </div>
+  <div class="movie-info">
+    <div class="movie-title">
+      {{movie.Title}} <span class="year">({{movie.Year}})</span>
+    </div>
+  </div>
+</div>

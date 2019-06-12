@@ -1,0 +1,52 @@
+<mini-imdb-nav-portal>
+  <div class="row">
+    <div class="col-12 col-sm-7 col-md-8">
+      <label for="search-input" class="d-none d-md-inline">Search</label>
+      <input type="text"
+             id="search-input"
+             [(ngModel)]="searchInput"
+             (keyup)="search({s: searchInput})"
+             placeholder="Search movie by keyword">
+    </div>
+    <div class="col-12 col-sm-5 col-md-4">
+      <mini-imdb-year-selector
+        (update-year-changed)="updateYearAndSearch($event)"
+        [disabled]="searchInput?.length < 3"
+      >
+      </mini-imdb-year-selector>
+    </div>
+  </div>
+</mini-imdb-nav-portal>
+<div class="container-fluid">
+  <div class="search-results"
+       *ngIf="searchResults?.Response !== 'True' && searchInput?.length < 3">
+    <div class="no-results text-center">
+      Start by typing a search query for a movie / series / episode / game
+    </div>
+  </div>
+  <div class="search-results"
+       *ngIf="searchInput?.length > 0 && searchInput?.length < 3">
+    <div class="no-results text-center">
+      <div class="small">
+        * Hint: add at least 3 characters word
+      </div>
+    </div>
+  </div>
+  <div class="search-results"
+       *ngIf="searchResults?.Response !== 'True' && searchInput?.length >= 3">
+    <div class="no-results text-center">
+      No results, Try a different search term
+    </div>
+  </div>
+  <div *ngIf="searchResults?.Response === 'True'"
+       class="search-results" infiniteScroll
+       [infiniteScrollDistance]="2"
+       [infiniteScrollThrottle]="50"
+       (scrolled)="loadMore()">
+    <div class="row">
+      <div class="col-6 col-sm-4 col-md-3 col-xl-2" *ngFor="let movie of searchResults.Search">
+        <mini-imdb-result-item [movie]="movie"></mini-imdb-result-item>
+      </div>
+    </div>
+  </div>
+</div>

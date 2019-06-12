@@ -26,7 +26,10 @@
               "apps/mini-imdb/src/favicon.ico",
               "apps/mini-imdb/src/assets"
             ],
-            "styles": ["apps/mini-imdb/src/styles.scss"],
+            "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/pink-bluegrey.css",
+              "apps/mini-imdb/src/styles.scss"
+            ],
             "scripts": []
           },
           "configurations": {
@@ -80,7 +83,9 @@
               "apps/mini-imdb/tsconfig.app.json",
               "apps/mini-imdb/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**"]
+            "exclude": [
+              "**/node_modules/**"
+            ]
           }
         },
         "test": {
