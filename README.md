@@ -4,6 +4,10 @@ This project was generated using [Nx](https://nx.dev).
 
 <p align="center"><img src="https://raw.githubusercontent.com/nrwl/nx/master/nx-logo.png" width="450"></p>
 
+# this project runs on
+- node 10.9 +
+- angular 8
+- nx (angular cli (wrapper) on steroids)
 
 # about this project
 this is experimental project i did for a test.
