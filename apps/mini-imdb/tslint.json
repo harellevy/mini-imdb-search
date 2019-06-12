@@ -1,0 +1,7 @@
+{
+  "extends": "../../tslint.json",
+  "rules": {
+    "directive-selector": [true, "attribute", "miniImdb", "camelCase"],
+    "component-selector": [true, "element", "mini-imdb", "kebab-case"]
+  }
+}
