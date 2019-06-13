@@ -17,5 +17,5 @@ export interface IMovieSearchSingleResult {
   Poster: string;
   imdbID: string;
   Year: string;
-  Type: 'movie' | 'series' | 'episode';
+  Type: 'movie' | 'series' | 'episode' | 'game';
 }
