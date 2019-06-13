@@ -19,9 +19,15 @@
 </mini-imdb-nav-portal>
 <div class="container-fluid">
   <div class="search-results"
-       *ngIf="searchResults?.Response !== 'True' && searchInput?.length < 3">
+       *ngIf="(searchResults?.Response !== 'True' && searchInput?.length < 3) && validSearchInput">
     <div class="no-results text-center">
       Start by typing a search query for a movie / series / episode / game
+    </div>
+  </div>
+  <div class="search-results"
+       *ngIf="(searchResults?.Response !== 'True' && searchInput?.length >= 3) || (searchResults?.Search?.length === 0)">
+    <div class="no-results text-center">
+      No results, Try a different search term
     </div>
   </div>
   <div class="search-results"
@@ -32,12 +38,7 @@
       </div>
     </div>
   </div>
-  <div class="search-results"
-       *ngIf="searchResults?.Response !== 'True' && searchInput?.length >= 3">
-    <div class="no-results text-center">
-      No results, Try a different search term
-    </div>
-  </div>
+
   <div *ngIf="searchResults?.Response === 'True'"
        class="search-results" infiniteScroll
        [infiniteScrollDistance]="2"

@@ -21,18 +21,22 @@ export class SearchResultsComponent implements OnInit {
 
   search(params: ISearchParams) {
     // don't run if search query less then 3 chars.
-    if ((params.s && params.s.length < 3) && !params.y) {
+    if (params.s && params.s.length < 3 && !params.y) {
       return;
     }
-    this.params = {...this.params, ...params};
+    this.searchResults = {Search: []};
+    this.page = 1; // reset page to default
+    this.params = {...this.params, ...params, ...{page: this.page}};
     this.searchService.find(this.params).subscribe((searchResult: IMovieSearchResult) => {
       if (searchResult.Response !== 'True') {
         this.validSearchInput = false;
         return;
       }
-      this.page = 1; // reset page to default
       this.searchResults = searchResult;
       this.validSearchInput = true;
+      // loads second page for big screens infinite scroll. (page full of items at first),
+      // can be done also by applying min-height on wrapper element if wanted
+      this.loadMore();
       return;
     })
   }
@@ -41,6 +45,7 @@ export class SearchResultsComponent implements OnInit {
     this.params.y = year;
     return this.search(this.params);
   }
+
 
   async loadMore() {
     if (this.validSearchInput) {
