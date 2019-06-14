@@ -46,7 +46,7 @@
        (scrolled)="loadMore()">
     <div class="row">
       <div class="col-6 col-sm-4 col-md-3 col-xl-2" *ngFor="let movie of searchResults.Search">
-        <mini-imdb-result-item [movie]="movie"></mini-imdb-result-item>
+        <mini-imdb-result-item [movie]="movie" (click)="openSearchResultModal(movie)"></mini-imdb-result-item>
       </div>
     </div>
   </div>

@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { SearchService } from './search.service';
 import { IMovieSearchResult, ISearchParams } from './search.types';
+import { MatDialog } from '@angular/material';
+import { MovieDetailsComponent } from '../movie-details/movie-details.component';
 
 @Component({
   selector: 'mini-imdb-search-page',
@@ -14,9 +16,22 @@ export class SearchResultsComponent implements OnInit {
   params: ISearchParams = {}; // 1 is the default in api
   validSearchInput = true;
   constructor(
-    private searchService: SearchService
+    private searchService: SearchService,
+    private modalService: MatDialog
   ) { }
   ngOnInit() {
+  }
+
+  openSearchResultModal(movie) {
+    const dialogRef = this.modalService.open(MovieDetailsComponent, {
+        width: '550px',
+        panelClass: 'movie-modal',
+        data: {movie: movie}
+      });
+
+    dialogRef.afterClosed().subscribe(result => {
+      // if need to set something after modal closed
+    });
   }
 
   search(params: ISearchParams) {

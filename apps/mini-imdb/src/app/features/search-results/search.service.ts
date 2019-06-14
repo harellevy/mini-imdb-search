@@ -16,7 +16,7 @@ export class SearchService {
 
   find(params: ISearchParams): Observable<any> {
     params.apikey = Config.OMDB.API_KEY;
-    let findParams = this.requestService.convertParamsToUrlSearchParams(params).toString();
+    const findParams = this.requestService.convertParamsToUrlSearchParams(params).toString();
     return this.httpClient.jsonp(`${Config.OMDB.ROOT_PATH}?${findParams}`, 'callback');
   }
 }

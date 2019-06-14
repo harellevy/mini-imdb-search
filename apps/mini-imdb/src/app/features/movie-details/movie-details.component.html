@@ -1,0 +1,17 @@
+<div class="close-modal" (click)="closeModal()">X</div>
+<div class="row">
+  <div class="col-12 col-sm-4">
+    <img [src]="data.movie.Poster" [alt]="data.movie.Title">
+  </div>
+  <div class="col-12 col-sm-8">
+    <h1>
+      {{data.movie.Title}} <span>({{data.movie.Year}})</span>
+    </h1>
+    <p>Director: {{data.movie.Director}}</p>
+    <p>Actors: {{data.movie.Actors}}</p>
+    <p>Awards: {{data.movie.Awards}}</p>
+    <p>Genre: {{data.movie.Genre}}</p>
+    <p>Runtime: {{data.movie.Runtime}}</p>
+    <p>{{data.movie.Plot}}</p>
+  </div>
+</div>

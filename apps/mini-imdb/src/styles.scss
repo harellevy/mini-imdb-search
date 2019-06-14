@@ -3,3 +3,17 @@
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
+
+
+// modals
+.movie-modal {
+  position: relative !important;
+  .mat-dialog-container {
+    background-color: #181818;
+    color: #fff;
+    max-height: 90vh;
+    overflow-x: hidden;
+  }
+}

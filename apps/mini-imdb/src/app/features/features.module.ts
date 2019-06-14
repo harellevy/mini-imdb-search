@@ -4,11 +4,13 @@ import { SearchService } from './search-results/search.service';
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 import { ResultItemComponent } from './search-results/result-item/result-item.component';
 import { SharedModule } from '../shared/shared.module';
+import { MovieDetailsComponent } from './movie-details/movie-details.component';
 
 @NgModule({
   declarations: [
     SearchResultsComponent,
-    ResultItemComponent
+    ResultItemComponent,
+    MovieDetailsComponent,
   ],
   imports: [
     SharedModule,
@@ -20,6 +22,9 @@ import { SharedModule } from '../shared/shared.module';
   exports: [
     SearchResultsComponent
   ],
+  entryComponents: [
+    MovieDetailsComponent
+  ]
 
 })
 export class FeaturesModule { }

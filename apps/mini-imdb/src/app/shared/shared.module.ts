@@ -7,13 +7,15 @@ import { NavPortalComponent } from '../layout/nav-bar/nav-portal/nav-portal.comp
 import { ImageErrorDirective } from './image-error/image-error.directive';
 import { MatSelectModule } from '@angular/material/select';
 import { YearSelectorComponent } from '../features/search-results/year-selector/year-selector.component';
+import { MatDialogModule } from '@angular/material';
 
 @NgModule({
   imports: [
     PortalModule,
     FormsModule,
     CommonModule,
-    MatSelectModule
+    MatSelectModule,
+    MatDialogModule
   ],
   declarations: [
     NavPortalComponent,
