@@ -7,11 +7,11 @@
     <h1>
       {{data.movie.Title}} <span>({{data.movie.Year}})</span>
     </h1>
-    <p>Director: {{data.movie.Director}}</p>
-    <p>Actors: {{data.movie.Actors}}</p>
-    <p>Awards: {{data.movie.Awards}}</p>
-    <p>Genre: {{data.movie.Genre}}</p>
-    <p>Runtime: {{data.movie.Runtime}}</p>
-    <p>{{data.movie.Plot}}</p>
+    <p *ngIf="data.movie.Director">Director: {{data.movie.Director}}</p>
+    <p *ngIf="data.movie.Actors">Actors: {{data.movie.Actors}}</p>
+    <p *ngIf="data.movie.Awards">Awards: {{data.movie.Awards}}</p>
+    <p *ngIf="data.movie.Genre">Genre: {{data.movie.Genre}}</p>
+    <p *ngIf="data.movie.Runtime">Runtime: {{data.movie.Runtime}}</p>
+    <p *ngIf="data.movie.Plot">{{data.movie.Plot}}</p>
   </div>
 </div>
