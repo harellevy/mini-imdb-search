@@ -19,7 +19,7 @@
 </mini-imdb-nav-portal>
 <div class="container-fluid">
   <div class="search-results"
-       *ngIf="(searchResults?.Response !== 'True' && searchInput?.length < 3) && validSearchInput">
+       *ngIf="(searchResults?.Response !== 'True' && searchInput?.length < 3) && !validSearchInput">
     <div class="no-results text-center">
       Start by typing a search query for a movie / series / episode / game
     </div>
